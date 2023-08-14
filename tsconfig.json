@@ -11,6 +11,8 @@
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
-        "rootDir": "src"
+        "rootDir": "src",
+        "declaration": true,
+        "declarationMap": true,
     }
 }
