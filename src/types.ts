@@ -1,9 +1,9 @@
 import { editor, IMarkdownString, IPosition, IRange, languages } from 'monaco-editor'
-import CompletionItemKind = languages.CompletionItemKind
-import CompletionItemInsertTextRule = languages.CompletionItemInsertTextRule
-import CompletionItemLabel = languages.CompletionItemLabel
-import CompletionItemTag = languages.CompletionItemTag
-import Command = languages.Command
+type  CompletionItemKind = languages.CompletionItemKind
+type  CompletionItemInsertTextRule = languages.CompletionItemInsertTextRule
+type  CompletionItemLabel = languages.CompletionItemLabel
+type  CompletionItemTag = languages.CompletionItemTag
+type  Command = languages.Command
 
 /**
  * A completion item represents a text snippet that is

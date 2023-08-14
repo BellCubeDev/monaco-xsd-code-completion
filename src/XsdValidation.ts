@@ -3,8 +3,8 @@ import XsdManager from './XsdManager'
 import xmldom from 'xmldom'
 import { ErrorType, XmlDomError } from './types'
 import { SimpleParser } from './SimpleParser'
-import IModelDeltaDecoration = editor.IModelDeltaDecoration
-import ITextModel = editor.ITextModel
+type  IModelDeltaDecoration = editor.IModelDeltaDecoration
+type  ITextModel = editor.ITextModel
 
 export default class XsdValidation {
     private xsdManager: XsdManager

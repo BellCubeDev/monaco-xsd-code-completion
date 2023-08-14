@@ -1,5 +1,5 @@
 import { editor } from 'monaco-editor'
-import ITextModel = editor.ITextModel
+type ITextModel = editor.ITextModel
 
 export abstract class SimpleParser {
     public static getMatchesForRegex = (text: string, regex: RegExp): string[] => {

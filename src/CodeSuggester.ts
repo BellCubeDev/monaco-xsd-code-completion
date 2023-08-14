@@ -41,6 +41,7 @@ export default class CodeSuggester {
                 if(elementName){
                     elementName = this.parseElementName(elementName, namespace)
                 }
+
                 return {
                     label: elementName,
                     kind: withoutTag

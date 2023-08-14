@@ -1,15 +1,15 @@
 import XsdManager from './XsdManager'
 import { editor, IPosition, languages, Position } from 'monaco-editor'
 import { XsdWorker } from './XsdWorker'
-import CompletionItemProvider = languages.CompletionItemProvider
-import ITextModel = editor.ITextModel
-import CompletionContext = languages.CompletionContext
-import ProviderResult = languages.ProviderResult
-import CompletionList = languages.CompletionList
-import CompletionItem = languages.CompletionItem
-import CompletionTriggerKind = languages.CompletionTriggerKind
-import CompletionItemKind = languages.CompletionItemKind
-import IWordAtPosition = editor.IWordAtPosition
+type  CompletionItemProvider = languages.CompletionItemProvider
+type  ITextModel = editor.ITextModel
+type  CompletionContext = languages.CompletionContext
+type  ProviderResult<T> = languages.ProviderResult<T>
+type  CompletionList = languages.CompletionList
+type  CompletionItem = languages.CompletionItem
+const  CompletionTriggerKind = languages.CompletionTriggerKind
+const  CompletionItemKind = languages.CompletionItemKind
+type  IWordAtPosition = editor.IWordAtPosition
 import { CompletionType, ICompletion, INamespaceInfo } from './types'
 import { SimpleParser } from './SimpleParser'
 import { XsdNamespaces } from './XsdNamespaces'

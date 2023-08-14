@@ -6,7 +6,7 @@ import { debounce } from 'ts-debounce'
 import xsdGenerateTemplate from './XsdGenerateTemplate'
 import prettier from 'prettier'
 import parserHTML from 'prettier/parser-html'
-import IStandaloneCodeEditor = editor.IStandaloneCodeEditor
+type  IStandaloneCodeEditor = editor.IStandaloneCodeEditor
 
 export default class XsdFeatures {
     private readonly xsdCollection: XsdManager

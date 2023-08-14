@@ -2,7 +2,7 @@ import { XsdWorker } from './XsdWorker'
 import { IXsd } from './types'
 import { SimpleParser } from './SimpleParser'
 import { editor } from 'monaco-editor'
-import IStandaloneCodeEditor = editor.IStandaloneCodeEditor
+type  IStandaloneCodeEditor = editor.IStandaloneCodeEditor
 
 export default class XsdManager {
     private xsdWorkers: Map<string, XsdWorker>

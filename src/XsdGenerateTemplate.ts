@@ -5,7 +5,7 @@ import { DOMParser } from 'xmldom'
 import { XsdNamespaces } from './XsdNamespaces'
 import { DocumentNode } from './types'
 import { XsdWorker } from './XsdWorker'
-import ITextModel = editor.ITextModel
+type  ITextModel = editor.ITextModel
 
 export default class xsdGenerateTemplate {
     private xsdManager: XsdManager

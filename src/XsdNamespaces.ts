@@ -3,7 +3,7 @@ import { XsdWorker } from './XsdWorker'
 import { editor } from 'monaco-editor'
 import { XsdManager } from './index'
 import { SimpleParser } from './SimpleParser'
-import ITextModel = editor.ITextModel
+type  ITextModel = editor.ITextModel
 
 export abstract class XsdNamespaces {
     public static getXsdNamespaces = (model: ITextModel | string): Map<string, INamespaceInfo> => {
