@@ -237,7 +237,7 @@ export default class XsdParser {
             )
             .join('<br/><hr/><br/>')
         return {
-            documentation: `${documentationString}<br/>Source: ${this.xsd.path}`,
+            documentation: `${documentationString}<br/><br />Source: ${this.xsd.path}`,
         }
     }
 }
