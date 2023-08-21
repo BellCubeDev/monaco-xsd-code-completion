@@ -146,7 +146,7 @@ export default class XsdCompletion {
     }
 
     private getTextFromCurrentTag = (text: string): string =>
-        SimpleParser.getMatchesForRegex(text, /(<\/*[^>]*)$/g)[0]
+        SimpleParser.getMatchesForRegex(text, /(<\/*[^>]*)$/g)?.[0] ?? ''
 
     private textContainsAttributes = (text: string): boolean =>
         this.getAttributesFromText(text).length > 0
@@ -208,15 +208,15 @@ export default class XsdCompletion {
         const unclosedTags = this.getUnclosedTags(textUntilPosition)
         const wordAtPosition = model.getWordAtPosition(position)
         if (this.wordAtPositionIsEqualToLastUnclosedTag(wordAtPosition, unclosedTags))
-            return unclosedTags[unclosedTags.length - 2]
+            return unclosedTags[unclosedTags.length - 2] ?? ''
 
         const lastTagBeforePosition = this.getLastTagBeforePosition(model, position)
         const currentTagName = this.getTagName(lastTagBeforePosition)
         if (wordAtPosition && currentTagName && currentTagName === wordAtPosition.word) {
-            return unclosedTags[unclosedTags.length - 2]
+            return unclosedTags[unclosedTags.length - 2] ?? ''
         }
 
-        return unclosedTags[unclosedTags.length - 1]
+        return unclosedTags[unclosedTags.length - 1] ?? ''
     }
 
     private getTextUntilPosition = (model: ITextModel, position: IPosition): string =>

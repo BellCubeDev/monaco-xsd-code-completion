@@ -160,8 +160,8 @@ export class XmlDomError {
         const columnMatch = this.message.match(/(?<=col:)[0-9]+/g)
         const lineNumberMatch = this.message.match(/(?<=line:)[0-9]+/g)
 
-        const column = parseInt((columnMatch ?? 0)[0]) + 1
-        const lineNumber = parseInt((lineNumberMatch ?? 0)[0])
+        const column = parseInt(columnMatch?.[0] ?? '0') + 1
+        const lineNumber = parseInt(lineNumberMatch?.[0] ?? '0')
 
         return { column: column, lineNumber: lineNumber }
     }
@@ -174,9 +174,11 @@ export enum ErrorType {
 }
 
 export interface DocumentNode {
-    name: string
-    documentation?: string
-    type?: string
-    use?: string
-    ref?: string
+    name: string,
+    documentation?: string,
+    type?: string,
+    use?: string,
+    ref?: string,
+    requiredAttribute?: DocumentNode[],
+    elements?: DocumentNode[],
 }

@@ -46,11 +46,11 @@ export default class XsdManager {
     public getIncludedXsdWorkersWithoutReference = (): XsdWorker[] => {
         const firstTag = SimpleParser.getFirstTag(this.editor.getModel())
         return Array.from(this.xsdWorkers.values()).filter((xsdWorker) =>
-            this.filterIncludedXsdWorkersWithNoReference(xsdWorker, firstTag),
+            this.filterIncludedXsdWorkersWithNoReference(xsdWorker, firstTag ?? 'root'),
         )
     }
 
-    private filterIncludedXsdWorkersWithNoReference = (xsdWorker, firstTag) =>
+    private filterIncludedXsdWorkersWithNoReference = (xsdWorker: XsdWorker, firstTag: string) =>
         xsdWorker.xsd.alwaysInclude ||
         (firstTag && xsdWorker.xsd.includeIfRootTag?.includes(firstTag))
 }

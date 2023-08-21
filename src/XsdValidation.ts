@@ -1,6 +1,6 @@
 import { editor, IPosition, Range } from 'monaco-editor'
 import XsdManager from './XsdManager'
-import xmldom from 'xmldom'
+import xmldom from '@xmldom/xmldom'
 import { ErrorType, XmlDomError } from './types'
 import { SimpleParser } from './SimpleParser'
 type  IModelDeltaDecoration = editor.IModelDeltaDecoration

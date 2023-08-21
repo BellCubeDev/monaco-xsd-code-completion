@@ -1,7 +1,7 @@
 import XsdManager from './XsdManager'
 import { editor } from 'monaco-editor'
 import { SimpleParser } from './SimpleParser'
-import { DOMParser } from 'xmldom'
+import { DOMParser } from '@xmldom/xmldom'
 import { XsdNamespaces } from './XsdNamespaces'
 import { DocumentNode } from './types'
 import { XsdWorker } from './XsdWorker'
@@ -42,7 +42,7 @@ export default class xsdGenerateTemplate {
             const elements = this.getFirstSubElements(element, xsdWorkers, level, withAttributes)
 
             const newXml = this.appendChildsToElement(
-                elements[0]['elements'],
+                elements[0]?.['elements'] ?? [],
                 parsedXml.documentElement,
                 parsedXml,
                 documentElementNamespace,

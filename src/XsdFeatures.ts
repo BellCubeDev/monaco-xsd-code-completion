@@ -1,22 +1,23 @@
 import XsdManager from './XsdManager'
 import XsdCompletion from './XsdCompletion'
 import XsdValidation from './XsdValidation'
+import monacoNS from 'monaco-editor';
 import { editor } from 'monaco-editor'
 import { debounce } from 'ts-debounce'
 import xsdGenerateTemplate from './XsdGenerateTemplate'
-import prettier from 'prettier'
-import parserHTML from 'prettier/parser-html'
+import prettier from 'prettier/esm/standalone'
+import parserHTML from 'prettier/esm/parser-html'
 type  IStandaloneCodeEditor = editor.IStandaloneCodeEditor
 
 export default class XsdFeatures {
     private readonly xsdCollection: XsdManager
-    private monaco: any
+    private monaco: typeof monacoNS;
     private oldDecorations: string[] = []
     private editor: editor.IStandaloneCodeEditor
     private xsdValidation: XsdValidation | undefined
     private xsdGenerateTemplate: xsdGenerateTemplate | undefined
 
-    constructor(xsdCollection: XsdManager, monaco: any, editor: IStandaloneCodeEditor) {
+    constructor(xsdCollection: XsdManager, monaco: typeof monacoNS, editor: IStandaloneCodeEditor) {
         this.xsdCollection = xsdCollection
         this.monaco = monaco
         this.editor = editor
@@ -72,7 +73,7 @@ export default class XsdFeatures {
             id: 'xsd-template-generate-without-attributes',
             label: 'Generate Template from XSD',
             keybindings: [
-                this.monaco.KeyMod.CtrlCmd | this.monaco.KeyMod.Shift | this.monaco.KeyCode.KEY_G,
+                this.monaco.KeyMod.CtrlCmd | this.monaco.KeyMod.Shift | this.monaco.KeyCode.KeyG,
             ],
             contextMenuGroupId: '1_modification',
             contextMenuOrder: 2,
@@ -85,7 +86,7 @@ export default class XsdFeatures {
                 this.monaco.KeyMod.CtrlCmd |
                     this.monaco.KeyMod.Alt |
                     this.monaco.KeyMod.Shift |
-                    this.monaco.KeyCode.KEY_G,
+                    this.monaco.KeyCode.KeyG,
             ],
             contextMenuGroupId: '1_modification',
             contextMenuOrder: 3,
@@ -98,7 +99,7 @@ export default class XsdFeatures {
             id: 'xsd-reformat-code',
             label: 'Reformat code',
             keybindings: [
-                this.monaco.KeyMod.CtrlCmd | this.monaco.KeyMod.Shift | this.monaco.KeyCode.KEY_R,
+                this.monaco.KeyMod.CtrlCmd | this.monaco.KeyMod.Shift | this.monaco.KeyCode.KeyR,
             ],
             contextMenuGroupId: '1_modification',
             contextMenuOrder: 1.5,

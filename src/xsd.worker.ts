@@ -11,19 +11,15 @@
 
 export default class XsdWorker {
     constructor() {
-        this._ctx = self as any
+        this.ctx = self as any
 
-        this._ctx.addEventListener('message', (event) => {
+        this.ctx.addEventListener('message', (event) => {
             console.log('dit is de worker', event.data)
             if (event.data.num) {
-                this._ctx.postMessage(event.data.num * event.data.num)
+                this.ctx.postMessage(event.data.num * event.data.num)
             }
         })
     }
 
-    _ctx: Worker
-
-    get ctx() {
-        return this._ctx
-    }
+    readonly ctx: Worker
 }

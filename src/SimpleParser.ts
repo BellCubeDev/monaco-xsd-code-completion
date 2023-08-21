@@ -12,7 +12,7 @@ export abstract class SimpleParser {
         model.getValueInRange(model.getFullModelRange())
 
     public static splitNamespaceAndTag = (tag: string): [string | undefined, string] => {
-        const [partOne, partTwo] = tag.split(':')
+        const [partOne, partTwo] = tag.split(':') as [string, string|undefined]
         return partTwo ? [partOne, partTwo] : [undefined, partOne]
     }
 

@@ -1,6 +1,6 @@
 import * as xpath from 'xpath'
 import { SelectedValue } from 'xpath'
-import { DOMParser } from 'xmldom'
+import { DOMParser } from '@xmldom/xmldom'
 import { DocumentNode, IXsd } from './types'
 
 export default class XsdParser {
