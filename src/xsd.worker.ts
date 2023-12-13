@@ -14,7 +14,6 @@ export default class XsdWorker {
         this.ctx = self as any
 
         this.ctx.addEventListener('message', (event) => {
-            console.log('dit is de worker', event.data)
             if (event.data.num) {
                 this.ctx.postMessage(event.data.num * event.data.num)
             }

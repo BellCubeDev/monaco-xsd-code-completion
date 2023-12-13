@@ -1,16 +1,17 @@
 import CodeSuggestionCache from './CodeSuggestionCache'
-import TurndownService from 'turndown'
 import { IMarkdownString, languages } from 'monaco-editor'
 import { DocumentNode, ICompletion } from './types'
 import XsdParser from './XsdParser'
 
+import MarkdownIt from 'markdown-it'
+
 export default class CodeSuggester {
     private codeSuggestionCache: CodeSuggestionCache
-    private turndownService: TurndownService
+    private md: MarkdownIt
 
     constructor(xsdParser: XsdParser) {
         this.codeSuggestionCache = new CodeSuggestionCache(xsdParser)
-        this.turndownService = new TurndownService()
+        this.md = new MarkdownIt()
     }
 
     public elements = (
@@ -41,7 +42,6 @@ export default class CodeSuggester {
                 if(elementName){
                     elementName = this.parseElementName(elementName, namespace)
                 }
-
                 return {
                     label: elementName,
                     kind: withoutTag
@@ -63,9 +63,9 @@ export default class CodeSuggester {
         name: string,
         withoutTag: boolean,
         incomplete: boolean,
-    ): string => {
+            ): string => {
         if (withoutTag) return '<' + name + '${1}>\n\t${2}\n</' + name + '>'
-        if (incomplete) return name
+                        if (incomplete) return name
 
         return name + '${1}></' + name
     }
@@ -94,7 +94,7 @@ export default class CodeSuggester {
     }
 
     private parseDocumentation = (documentation: string | undefined): IMarkdownString => ({
-        value: documentation ? this.turndownService.turndown(documentation) : '',
+        value: documentation ? this.md.render(documentation) : '',
         isTrusted: true,
     })
 

@@ -33,7 +33,7 @@ export default class XsdFeatures {
     }
 
     public doValidation = (): void => {
-        console.log('validate')
+        console.log('Validating XML...')
         this.xsdValidation = this.xsdValidation ?? new XsdValidation(this.xsdCollection)
         const model = this.editor.getModel()
         const newDecorations = this.xsdValidation.decorations(model)
